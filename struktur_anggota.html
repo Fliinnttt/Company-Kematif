@@ -22,13 +22,17 @@
   body.lock { overflow: hidden; }
   a { text-decoration: none; color: inherit; }
 
-  header{
-    background-color: #0F4C81;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    height: 75px;
-    padding: 20px;
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #0F4C81;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 75px;
+  padding: 20px;
 }
 
 header img{
@@ -168,7 +172,7 @@ nav ul li a:hover{
     <nav>
         <ul>
             <li><a href="halaman_beranda.html">Beranda</a></li>
-            <li><a href="tentang kami">Tentang kami</a></li>
+            <li><a href="halaman_beranda.html/#tentang-kami">Tentang kami</a></li>
             <li><a href="acara">acara</a></li>
             <li><a href="#">Struktur</a></li>
             <li><a href="login.html">Login</a></li>
@@ -202,6 +206,27 @@ nav ul li a:hover{
 </div>
 
 <script>
+   const header = document.querySelector("header");
+      const tinggiHeader = header.offsetHeight; // Mengukur tinggi asli header secara otomatis
+
+      window.addEventListener("scroll", () => {
+        const posisiScroll = window.scrollY;
+
+        if (posisiScroll <= tinggiHeader) {
+          // Tahap 1: Saat scroll belum melewati tinggi header,
+          // header ikut terdorong ke atas seiring jarak scroll
+          header.style.transition = "none";
+          header.style.transform = `translateY(-${posisiScroll}px)`;
+          header.classList.remove("muncul");
+        } else {
+          // Tahap 2: Setelah header habis ter-scroll,
+          // munculkan kembali ke posisi atas (0) dengan animasi halus
+          header.style.transition =
+            "transform 0.35s ease, box-shadow 0.35s ease";
+          header.style.transform = "translateY(0)";
+          header.classList.add("muncul");
+        }
+      });
   /*
     FOTO: simpan foto tiap divisi di folder  assets/divisi/  dengan nama sesuai "foto" di bawah
     (tanpa ekstensi). Ekstensi .jpg, .jpeg, .png, atau .webp akan dicoba otomatis.

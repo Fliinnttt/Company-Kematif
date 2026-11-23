@@ -1,0 +1,111 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kas Anggota - KEMATIF</title>
+</head>
+<body>
+
+    <header>
+        <a href="beranda_anggota.html">
+            <img src="img/logo-kematif.png" alt="Logo KEMATIF" width="80">
+        </a>
+
+        <div>
+            <strong>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</strong>
+            <p>Politeknik Negeri Jember</p>
+        </div>
+
+        <nav>
+            <a href="beranda_anggota.html">Beranda</a> |
+            <a href="kas_anggota.html" aria-current="page">Kas Anggota</a> |
+            <a href="keuangan_anggota.html">Keuangan</a> |
+            <a href="index.html">Keluar</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <section>
+            <p>Pengelolaan Kas Anggota</p>
+            <h1>Kas Anggota</h1>
+            <p>
+                Pantau status keanggotaan, tunggakan, dan riwayat kas
+                untuk memudahkan pengelolaan keuangan organisasi.
+            </p>
+
+            <a href="#cari">Cari Anggota</a> |
+            <a href="#daftar">Lihat Ringkasan</a>
+        </section>
+
+        <hr>
+
+        <section id="daftar">
+            <h2>Daftar Kas Anggota</h2>
+            <p>
+                Pantau nama anggota, status pembayaran, dan tunggakan
+                dalam satu daftar terpadu.
+            </p>
+
+            <p>0 Anggota</p>
+
+            <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Nama Anggota</th>
+                        <th>NIM</th>
+                        <th>Status</th>
+                        <th>Tunggakan</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <strong>Belum ada data anggota</strong>
+                            <p>Data anggota belum tersedia.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="cari">
+            <h2>Cari Anggota</h2>
+            <p>
+                Masukkan nama atau NIM anggota untuk mencari informasi
+                pembayaran kas.
+            </p>
+
+            <form>
+                <p>
+                    <label for="nama">Nama Anggota:</label><br>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama">
+                </p>
+
+                <p>
+                    <label for="nim">NIM:</label><br>
+                    <input type="text" id="nim" name="nim" placeholder="Masukkan NIM">
+                </p>
+
+                <p>
+                    <label for="catatan">Keterangan:</label><br>
+                    <textarea id="catatan" name="catatan" rows="3" cols="40" placeholder="Masukkan keterangan tambahan"></textarea>
+                </p>
+
+                <button type="submit">Cari</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+
+    </main>
+
+</body>
+</html>
+```

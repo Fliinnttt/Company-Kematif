@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+    --biru: #0f4c81;
+    --biru-muda: #eaf6fe;
+    --latar: #f5faff;
+    --teks: #2d3748;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background: var(--latar);
+    color: var(--teks);
+}
+
+header{
+    background-color: #0F4C81;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 75px;
+    padding: 20px;
+}
+
+header img{
+    width: 100px;
+    height: auto;
+}
+
+.judul{
+    color: white;
+}
+
+.judul h4{
+    margin: 0;
+}
+
+.judul p{
+    margin-top: 0;
+}
+
+nav{
+    margin-left: auto;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #4b9acb;
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    background-color: white;
+    color: #154f80;
+}
+
+.header-judul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* garis pemisah tidak tampil di desain */
+hr {
+    display: none;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 55px 20px 0;
+}
+
+.hero .badge-hero {
+    display: inline-block;
+    background: #e8f4fd;
+    color: var(--biru);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    margin-bottom: 38px;
+}
+
+.hero h1 {
+    color: var(--biru);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 38px;
+}
+
+.hero .sub {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--teks);
+}
+
+/* ================= LAYANAN ================= */
+.layanan {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.layanan h2 {
+    text-align: center;
+    color: var(--biru);
+    font-size: 30px;
+    font-weight: 700;
+    margin: 55px 0 30px;
+}
+
+.kartu-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #fff;
+    border: 1px solid #dbeaf7;
+    border-radius: 26px;
+    overflow: hidden;
+}
+
+.kartu {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 19px;
+    min-height: 330px;
+}
+
+.kartu .label {
+    align-self: flex-start;
+    background: var(--biru-muda);
+    color: var(--biru);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 999px;
+}
+
+.kartu h3 {
+    color: var(--biru);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+
+/* kartu pertama (biru tua) */
+.kartu.utama {
+    background: var(--biru);
+}
+
+.kartu.utama .label {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.kartu.utama h3 {
+    color: #fff;
+}
+
+/* kotak foto: foto memenuhi kotak, tulisan tautan tepat di tengah */
+.foto-kartu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    height: 190px;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    /* tampil jika foto belum ada */
+    background: linear-gradient(135deg, #1a6aa8, #48c6ef);
+}
+
+.foto-kartu img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+/* lapisan gelap tipis supaya tulisan selalu terbaca */
+.foto-kartu::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 40, 70, 0.38);
+    transition: background 0.3s;
+}
+
+.foto-kartu .teks-tengah {
+    position: relative;
+    z-index: 1;
+    max-width: 88%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: rgba(15, 76, 129, 0.82);
+    transition: background 0.3s, color 0.3s;
+}
+
+.foto-kartu:hover img,
+.foto-kartu:focus-visible img {
+    transform: scale(1.06);
+}
+
+.foto-kartu:hover::after,
+.foto-kartu:focus-visible::after {
+    background: rgba(8, 40, 70, 0.2);
+}
+
+.foto-kartu:hover .teks-tengah,
+.foto-kartu:focus-visible .teks-tengah {
+    background: #fff;
+    color: var(--biru);
+}
+
+.foto-kartu:focus-visible {
+    outline: 3px solid #48c6ef;
+    outline-offset: 2px;
+}
+
+/* deskripsi tidak ditampilkan pada desain */
+.kartu .deskripsi {
+    display: none;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 50px 20px 30px;
+    font-size: 13px;
+    color: #6b7c8f;
+}
+
+footer img {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* ================= RESPONSIF ================= */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .kartu-wrap {
+        grid-template-columns: 1fr;
+    }
+}

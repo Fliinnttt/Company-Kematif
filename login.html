@@ -1,82 +1,59 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Anggota KEMATIF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Anggota</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
-        <a href="index.html">
-            <img src="assets/logo-kematif.png" alt="Logo KEMATIF" width="80">
-        </a>
-
-        <div>
-            <strong>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</strong>
+        <img src="assets/logo-kematif.png" alt="Logo KEMATIF">
+        <div class="judul">
+            <h4>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</h4>
             <p>Politeknik Negeri Jember</p>
         </div>
-
         <nav>
-            <a href="index.html">Beranda</a> |
-            <a href="struktur_anggota.html">Struktur</a> |
-            <a href="login.html" aria-current="page">Login</a>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+            </ul>
         </nav>
     </header>
 
-    <hr>
-
     <main>
-
         <section>
-            <a href="index.html">Kembali ke Beranda</a>
+            <div class="tombol-kembali">
+                <a href="index.html" style="text-decoration: none;">←</a>
+            </div>
 
-            <h1>Login</h1>
+            <div class="login-header">
+                <span>Masuk sebagai anggota KEMATIF</span>
 
-            <p>Masuk sebagai anggota KEMATIF</p>
+                <h1>Login</h1>
 
-            <p>
-                Masuk menggunakan akun SSO Polije untuk mengakses
-                layanan anggota.
-            </p>
+                <p>Masuk menggunakan akun SSO Polije untuk<br>mengakses layanan anggota</p>
+            </div>
 
-            <form>
-                <p>
-                    <label for="email">Email SSO Polije</label><br>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Masukkan Email SSO Polije"
-                        autocomplete="username"
-                        required>
-                </p>
+            <form action="beranda-anggota.html" method="post">
+                
+                <div class="form-grub">
+                    <input type="email" name="email" placeholder="Email SSO Polije" required>
+                </div>
 
-                <p>
-                    <label for="password">Kata Sandi</label><br>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Minimal 8 karakter"
-                        autocomplete="current-password"
-                        minlength="8"
-                        required>
-                </p>
+                <div class="form-grub">
+                    <input type="password" name="password" placeholder="Minimal 8 karakter" minlength="8" required>
+                </div>
 
-                <p>
+                <div class="lupa-password">
                     <a href="#">Forgot Password?</a>
-                </p>
+                </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" class="login-button">Login</button>
             </form>
-
         </section>
-
     </main>
-
-
 </body>
 </html>
-```

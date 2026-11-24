@@ -22,16 +22,63 @@
   body.lock { overflow: hidden; }
   a { text-decoration: none; color: inherit; }
 
-  .navbar { background: var(--blue); min-height: 88px; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .brand { display: flex; align-items: center; gap: 16px; }
-  .logo { height: 55px; width: auto; display: block; }
-  .brand-copy { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
-  .brand-copy strong { color: #fff; font-weight: 700; }
-  .brand-copy span { color: #d7e8f7; }
-  .nav { display: flex; gap: 12px; flex-wrap: wrap; }
-  .nav a { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); color: #fff; font-weight: 500; font-size: 15px; padding: 10px 16px; border-radius: 999px; transition: background .15s; }
-  .nav a:hover { background: rgba(255,255,255,.18); }
-  .nav a.active { background: #fff; color: var(--blue); }
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #0F4C81;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 75px;
+  padding: 20px;
+}
+
+header img{
+    width: 100px;
+    height: auto;
+}
+
+.judul{
+    color: white;
+}
+
+.judul h4{
+    margin: 0;
+}
+
+.judul p{
+    margin-top: 0;
+}
+
+nav{
+    margin-left: auto;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #4b9acb;
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    background-color: white;
+    color: #154f80;
+}
 
   main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 48px 24px 72px; display: flex; flex-direction: column; align-items: center; gap: 32px; }
   h1 { color: var(--blue); font-size: 44px; line-height: 1.15; font-weight: 700; text-align: center; }
@@ -116,23 +163,21 @@
 </head>
 <body>
 
-<header class="navbar">
-  <a class="brand" href="index.html">
-    <!-- Taruh logo di assets/logo-kematif.png. Jika belum ada, tampil logo teks. -->
-    <img class="logo" src="assets/logo-kematif.png" alt="KEMATIF"
-         onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerHTML:'<b style=&quot;color:#fff;font-size:22px;letter-spacing:1px&quot;>KEMA</b><b style=&quot;color:#4cc3ee;font-size:22px;letter-spacing:1px&quot;>TIF</b>'}))">
-    <div class="brand-copy">
-      <strong>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</strong>
-      <span>Politeknik Negeri Jember</span>
+<header>
+    <img src="assets/logo-kematif.png" alt="Logo KEMATIF">
+    <div class="judul">
+        <h4>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</h4>
+        <p>Politeknik Negeri Jember</p>
     </div>
-  </a>
-  <nav class="nav">
-    <a href="halaman_beranda.html">Beranda</a>
-    <a href="halaman_beranda.html#tentang-kami">Tentang Kami</a>
-    <a href="halaman_beranda.html#acara">Acara</a>
-    <a href="struktur_anggota.html" class="active" aria-current="page">Struktur</a>
-    <a href="halaman_login.html">Login</a>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#tentang-kami">Tentang kami</a></li>
+            <li><a href="index.html#acara">acara</a></li>
+            <li><a href="#">Struktur</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main>
@@ -161,6 +206,27 @@
 </div>
 
 <script>
+   const header = document.querySelector("header");
+      const tinggiHeader = header.offsetHeight; // Mengukur tinggi asli header secara otomatis
+
+      window.addEventListener("scroll", () => {
+        const posisiScroll = window.scrollY;
+
+        if (posisiScroll <= tinggiHeader) {
+          // Tahap 1: Saat scroll belum melewati tinggi header,
+          // header ikut terdorong ke atas seiring jarak scroll
+          header.style.transition = "none";
+          header.style.transform = `translateY(-${posisiScroll}px)`;
+          header.classList.remove("muncul");
+        } else {
+          // Tahap 2: Setelah header habis ter-scroll,
+          // munculkan kembali ke posisi atas (0) dengan animasi halus
+          header.style.transition =
+            "transform 0.35s ease, box-shadow 0.35s ease";
+          header.style.transform = "translateY(0)";
+          header.classList.add("muncul");
+        }
+      });
   /*
     FOTO: simpan foto tiap divisi di folder  assets/divisi/  dengan nama sesuai "foto" di bawah
     (tanpa ekstensi). Ekstensi .jpg, .jpeg, .png, atau .webp akan dicoba otomatis.

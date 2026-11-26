@@ -832,9 +832,6 @@ footer ul li a:hover {
 ========================================= */
 
 @media screen and (max-width: 600px) {
-  
-
- 
 
   main > section:first-child {
     min-height: 0;
@@ -945,7 +942,6 @@ footer ul li a:hover {
 ========================================= */
 
 @media screen and (max-width: 380px) {
- 
 
   main > section:first-child h1 {
     font-size: 22px;

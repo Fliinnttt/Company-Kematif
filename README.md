@@ -14,12 +14,17 @@ Buka `index.html` di browser. Tidak perlu instalasi apa pun.
 ├─ kas-anggota.html        Kas anggota
 ├─ keuangan-anggota.html   Keuangan organisasi
 ├─ css/
+│  ├─ kalender.css, grafik.css, proker.css   Gaya fitur baru
 │  ├─ beranda.css          Gaya index.html
 │  ├─ beranda-anggota.css  Gaya beranda-anggota.html
 │  ├─ kas-anggota.css      Gaya kas-anggota.html
 │  ├─ keuangan-anggota.css Gaya keuangan-anggota.html
 │  └─ login.css            Gaya login.html
 ├─ js/
+│  ├─ data-kegiatan.js     Data kegiatan bersama (kalender, hitung mundur, timeline)
+│  ├─ kalender.js          Kalender bulanan, hitung mundur, unduh .ics
+│  ├─ grafik.js            Grafik keuangan dan kas (SVG)
+│  ├─ proker.js            Timeline program kerja + kartu divisi flip
 │  ├─ kas-anggota.js       Data + pencarian kas anggota (data contoh)
 │  └─ keuangan-anggota.js  Data + filter transaksi keuangan (data contoh)
 └─ assets/

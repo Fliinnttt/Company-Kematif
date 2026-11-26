@@ -1,0 +1,161 @@
+/* ============================================================
+   Grafik Keuangan & Kas — css/grafik.css
+   Dipakai oleh keuangan-anggota.html dan kas-anggota.html.
+   Memakai variabel warna dari css masing-masing halaman.
+   ============================================================ */
+
+.g-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.g-kartu {
+    background: linear-gradient(180deg, #fff 0%, var(--latar) 100%);
+    border: 1px solid var(--garis);
+    border-radius: 20px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.g-kartu { display: flex; flex-direction: column; }
+.g-kartu > div { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.g-kartu.lebar { grid-column: 1 / -1; }
+
+.g-kartu h3 {
+    font-size: 16px;
+    color: var(--biru);
+}
+
+.g-kartu > p.g-ket {
+    margin: 4px 0 14px;
+    font-size: 13px;
+    color: var(--abu);
+}
+
+.g-svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* ---------- Batang ---------- */
+.g-garis { stroke: var(--garis); stroke-width: 1; stroke-dasharray: 3 4; }
+.g-sumbu { font-size: 11px; fill: var(--abu); }
+.g-label { font-size: 12px; font-weight: 700; fill: var(--teks); }
+.g-nilai { font-size: 11px; font-weight: 700; fill: var(--teks); opacity: 0; transition: opacity 0.5s ease; }
+
+.g-batang {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    transform: scaleY(0);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.2s;
+}
+.g-batang:hover { filter: brightness(1.12); }
+
+.g-svg.tampil .g-batang { transform: scaleY(1); }
+.g-svg.tampil .g-nilai { opacity: 1; }
+
+/* ---------- Legenda ---------- */
+.g-legenda {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--abu);
+}
+.g-legenda i, .g-daftar i {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 4px;
+    margin-right: 6px;
+    flex: none;
+}
+
+/* ---------- Donut ---------- */
+.g-donut { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.g-donut .g-svg { max-width: 210px; }
+
+.g-irisan {
+    transition: stroke-dasharray 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s;
+    outline: none;
+    cursor: pointer;
+}
+.g-irisan.redup { opacity: 0.3; }
+
+.g-tengah-besar { font-size: 24px; font-weight: 700; fill: var(--biru); }
+.g-tengah-kecil { font-size: 10.5px; fill: var(--abu); }
+
+.g-daftar { list-style: none; width: 100%; display: grid; gap: 4px; }
+.g-daftar li {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: default;
+    transition: background 0.2s;
+}
+.g-daftar li:hover { background: var(--biru-muda); }
+.g-daftar span { color: var(--teks); }
+.g-daftar strong { margin-left: auto; color: var(--teks); }
+.g-daftar em { font-style: normal; min-width: 42px; text-align: right; color: var(--abu); }
+
+/* ---------- Target dana ---------- */
+.g-target-kepala { display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0 10px; }
+.g-target-kepala strong { color: var(--teks); font-size: 15px; }
+.g-target-kepala span { font-size: 22px; font-weight: 700; color: var(--biru); }
+
+.g-trek {
+    height: 16px;
+    border-radius: 999px;
+    background: #e4eef7;
+    overflow: hidden;
+}
+.g-isi {
+    width: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--biru), #48c6ef);
+    transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.g-target-ket { margin-top: 10px; font-size: 13px; color: var(--abu); }
+
+/* ---------- Tumpukan per angkatan (kas) ---------- */
+.g-tumpuk { display: grid; gap: 12px; margin-top: 6px; }
+.g-baris { display: flex; align-items: center; gap: 12px; }
+.g-baris-label { width: 44px; font-size: 13px; font-weight: 700; color: var(--teks); flex: none; }
+.g-trek-tumpuk { flex: 1; border-radius: 10px; overflow: hidden; background: #e4eef7; }
+.g-tumpuk-isi {
+    display: flex;
+    height: 44px;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.g-tumpuk-isi.tampil { clip-path: inset(0 0 0 0); }
+.g-tumpuk-isi span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    .g-grid { grid-template-columns: 1fr; }
+}
+
+/* Teks SVG ikut mengecil bersama grafik, jadi diperbesar di layar kecil */
+@media (max-width: 600px) {
+    .g-sumbu { font-size: 18px; }
+    .g-nilai { font-size: 18px; }
+    .g-label { font-size: 19px; }
+    .g-tengah-besar { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .g-batang, .g-nilai, .g-irisan, .g-isi, .g-tumpuk-isi { transition: none; }
+}

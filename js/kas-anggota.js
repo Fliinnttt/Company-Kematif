@@ -29,6 +29,9 @@
         { nama: "Anisa Rahmawati",      nim: "E41251042", bulanTunggak: 0, keterangan: "Angkatan 2025" }
     ];
 
+    // Dibagikan ke js/grafik.js
+    window.DATA_KAS = { anggota: anggota, iuran: IURAN_PER_BULAN };
+
     /* ---------- FUNGSI BANTU ---------- */
     function rupiah(n) {
         return "Rp " + n.toLocaleString("id-ID");

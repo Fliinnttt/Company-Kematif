@@ -26,6 +26,13 @@
         { tanggal: "2026-09-05", keterangan: "Biaya domain dan hosting website",    kategori: "Operasional", jenis: "Pengeluaran", nominal: 650000 }
     ];
 
+    /* Target dana kegiatan (CONTOH) — dipakai bar target di bagian grafik.
+       Ganti nama dan nominal sesuai target dana yang sebenarnya. */
+    var TARGET_DANA = { nama: "Dana Turnamen KEMATIF", nominal: 6000000, kategori: "Kegiatan" };
+
+    // Dibagikan ke js/grafik.js
+    window.DATA_KEUANGAN = { transaksi: transaksi, perTanggal: PER_TANGGAL, target: TARGET_DANA };
+
     /* ---------- FUNGSI BANTU ---------- */
     var BULAN_PENDEK = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
     var BULAN_PANJANG = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];

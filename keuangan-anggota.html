@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Keuangan Organisasi - KEMATIF</title>
     <link rel="stylesheet" href="css/keuangan-anggota.css">
+    <link rel="stylesheet" href="css/grafik.css">
 </head>
 <body>
 
@@ -66,6 +67,32 @@
                     <p><strong id="total-pengeluaran">Rp 0</strong></p>
                     <p>Kegiatan dan operasional</p>
                 </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="panel" id="grafik-keuangan">
+            <h2>Grafik Keuangan</h2>
+            <p>Perbandingan arus kas per bulan, rincian pengeluaran, dan progres target dana kegiatan.</p>
+
+            <div class="g-grid">
+                <div class="g-kartu">
+                    <h3>Pemasukan vs Pengeluaran</h3>
+                    <p class="g-ket">Total per bulan (dalam juta rupiah)</p>
+                    <div id="grafik-batang"></div>
+                </div>
+
+                <div class="g-kartu">
+                    <h3>Pengeluaran per Kategori</h3>
+                    <p class="g-ket">Arahkan kursor untuk melihat persentase</p>
+                    <div id="grafik-donut"></div>
+                </div>
+
+                <div class="g-kartu lebar">
+                    <h3>Target Dana Kegiatan</h3>
+                    <div id="grafik-target"></div>
+                </div>
             </div>
         </section>
 
@@ -135,5 +162,6 @@
     </footer>
 
     <script src="js/keuangan-anggota.js"></script>
+    <script src="js/grafik.js"></script>
 </body>
 </html>

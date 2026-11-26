@@ -1,0 +1,334 @@
+/* ============================================================
+   Kalender & hitung mundur — css/kalender.css
+   Berdiri sendiri (punya variabel sendiri), jadi bisa dipakai
+   di halaman mana pun.
+   ============================================================ */
+
+.hm, .kal, .kal-bungkus {
+    --kb: #0f4c81;
+    --kb-muda: #eaf7fd;
+    --kb-garis: #d7e8f7;
+    --kb-teks: #1d2940;
+    --kb-abu: #64748b;
+    --kb-hijau: #168b41;
+    --kb-amber: #d99a1b;
+    --kb-slate: #94a3b8;
+    --kb-emas: #e8c170;
+    font-family: inherit;
+}
+
+/* ---------- Tombol ---------- */
+.kal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background: var(--kb);
+    border: 1px solid var(--kb);
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+.kal-btn:hover { background: #0c3f6b; transform: translateY(-1px); }
+.kal-btn.garis { background: #fff; color: var(--kb); border-color: var(--kb-garis); }
+.kal-btn.garis:hover { background: var(--kb-muda); }
+.kal-btn.terang { background: linear-gradient(90deg, #f3d98f, #d9a93f); border-color: transparent; color: #3a2a05; }
+.kal-btn.terang:hover { background: linear-gradient(90deg, #f7e2a6, #e0b24c); }
+
+/* ============ HITUNG MUNDUR ============ */
+/* pembungkus di beranda-anggota.html */
+.hm-tempat { padding: 32px 5% 0; }
+
+.hm {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 36px;
+    color: #e8f3fb;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(232, 193, 112, 0.22), transparent 45%),
+        linear-gradient(120deg, #07213a 0%, #0f4c81 100%);
+    border: 1px solid rgba(232, 193, 112, 0.4);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px -18px rgba(7, 33, 58, 0.6);
+}
+
+.hm.kosong { flex-direction: column; align-items: flex-start; gap: 6px; }
+.hm.kosong strong { font-size: 18px; color: #fff; }
+.hm.kosong p { font-size: 14px; color: #c9dfee; }
+
+.hm-info { flex: 1 1 320px; min-width: 0; }
+.hm-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--kb-emas);
+    border: 1px solid rgba(232, 193, 112, 0.5);
+    border-radius: 999px;
+}
+.hm-info h3 { margin: 12px 0 6px; font-size: 28px; line-height: 1.2; color: #fff; }
+.hm-info p { font-size: 14px; color: #c9dfee; line-height: 1.5; }
+.hm-aksi { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.hm .kal-btn.garis { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+.hm .kal-btn.garis:hover { background: rgba(255, 255, 255, 0.12); }
+
+.hm-waktu { display: flex; gap: 12px; }
+.hm-sel {
+    min-width: 76px;
+    padding: 14px 10px 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+}
+.hm-sel b {
+    display: block;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 700;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+.hm-sel span {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--kb-emas);
+}
+
+/* ============ KALENDER ============ */
+.kal-bungkus {
+    background: #fff;
+    border: 1px solid var(--kb-garis);
+    border-radius: 24px;
+    padding: 24px;
+}
+.kal-bungkus > h2 { color: var(--kb); font-size: 24px; margin-bottom: 4px; }
+.kal-bungkus > p { color: var(--kb-abu); font-size: 14px; margin-bottom: 18px; }
+
+.kal {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 24px;
+}
+
+.kal-kepala {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.kal-nav { display: flex; align-items: center; gap: 10px; }
+.kal-judul { min-width: 160px; text-align: center; font-size: 18px; color: var(--kb); }
+.kal-ikon {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--kb);
+    background: var(--kb-muda);
+    border: 1px solid var(--kb-garis);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.kal-ikon:hover { background: #d9eefa; }
+.kal-aksi { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.kal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.kal-hari-nama {
+    padding: 6px 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--kb-abu);
+}
+
+.kal-sel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    aspect-ratio: 1 / 0.72;
+    font-family: inherit;
+    color: var(--kb-teks);
+    background: #f7fbff;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.kal-sel:hover { background: var(--kb-muda); transform: translateY(-2px); }
+.kal-sel:focus-visible, .kal-ikon:focus-visible, .kal-btn:focus-visible, .kal-agenda-btn:focus-visible {
+    outline: 3px solid rgba(15, 76, 129, 0.35);
+    outline-offset: 2px;
+}
+.kal-angka { font-size: 15px; font-weight: 500; }
+.kal-sel.ada { background: var(--kb-muda); border-color: var(--kb-garis); }
+.kal-sel.ada .kal-angka { font-weight: 700; color: var(--kb); }
+.kal-sel.hari-ini { border-color: var(--kb); }
+.kal-sel.hari-ini .kal-angka {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    background: var(--kb);
+    border-radius: 50%;
+}
+.kal-sel.dipilih {
+    background: var(--kb);
+    border-color: var(--kb);
+    box-shadow: 0 8px 18px -8px rgba(15, 76, 129, 0.7);
+}
+.kal-sel.dipilih .kal-angka { color: #fff; }
+.kal-sel.dipilih.hari-ini .kal-angka { background: rgba(255, 255, 255, 0.22); }
+
+.kal-titik { display: flex; gap: 3px; height: 6px; }
+.kal-titik i, .kal-legenda i, .kal-agenda-btn i {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: none;
+}
+.kal-titik i.soon, .kal-legenda i.soon, .kal-agenda-btn i.soon { background: var(--kb-amber); }
+.kal-titik i.now, .kal-legenda i.now, .kal-agenda-btn i.now { background: var(--kb-hijau); }
+.kal-titik i.done, .kal-legenda i.done, .kal-agenda-btn i.done { background: var(--kb-slate); }
+.kal-sel.dipilih .kal-titik i { box-shadow: 0 0 0 1.5px #fff; }
+
+.kal-legenda {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--kb-abu);
+}
+.kal-legenda li { display: flex; align-items: center; gap: 6px; }
+
+/* ---------- Panel kanan ---------- */
+.kal-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+    background: linear-gradient(180deg, var(--kb-muda) 0%, #fff 100%);
+    border: 1px solid var(--kb-garis);
+    border-radius: 20px;
+    min-width: 0;
+}
+.kal-panel-judul { font-size: 16px; color: var(--kb); }
+.kal-panel-judul.kecil {
+    margin-top: 10px;
+    padding-top: 14px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--kb-abu);
+    border-top: 1px dashed var(--kb-garis);
+}
+.kal-kosong-teks { font-size: 14px; color: var(--kb-abu); line-height: 1.5; }
+
+.kal-acara {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--kb-garis);
+    border-left: 4px solid var(--kb-amber);
+    border-radius: 14px;
+}
+.kal-acara.now { border-left-color: var(--kb-hijau); }
+.kal-acara.done { border-left-color: var(--kb-slate); }
+.kal-jam { flex: none; font-size: 12px; font-weight: 700; color: var(--kb); white-space: nowrap; }
+.kal-acara-isi { min-width: 0; flex: 1; }
+.kal-acara-isi h4 { font-size: 15px; color: var(--kb-teks); }
+.kal-acara-isi p { margin-top: 2px; font-size: 13px; color: var(--kb-abu); }
+.kal-acara-baris {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+}
+.kal-acara-baris .kal-btn { padding: 7px 12px; font-size: 12px; }
+.kal-status {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+.kal-status.soon { background: #fef0d3; color: #a15c07; }
+.kal-status.now { background: #dcf7e4; color: var(--kb-hijau); }
+.kal-status.done { background: #e8edf3; color: #475569; }
+
+.kal-agenda { list-style: none; display: grid; gap: 4px; }
+.kal-agenda-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    text-align: left;
+    color: var(--kb-teks);
+    background: transparent;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.kal-agenda-btn:hover { background: var(--kb-muda); }
+.kal-agenda-btn span { flex: none; min-width: 48px; color: var(--kb-abu); }
+.kal-agenda-btn strong { font-weight: 500; }
+
+@media (max-width: 900px) {
+    .kal { grid-template-columns: 1fr; }
+    .hm { padding: 24px; }
+}
+
+@media (max-width: 560px) {
+    .kal-bungkus { padding: 18px 14px; }
+    .kal-grid { gap: 4px; }
+    .kal-sel { border-radius: 10px; }
+    .kal-angka { font-size: 13px; }
+    .kal-judul { min-width: 0; font-size: 16px; }
+    .hm-info h3 { font-size: 22px; }
+    .hm-waktu { width: 100%; gap: 8px; }
+    .hm-sel { flex: 1; min-width: 0; padding: 12px 4px 8px; }
+    .hm-sel b { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kal-sel, .kal-btn { transition: none; }
+}

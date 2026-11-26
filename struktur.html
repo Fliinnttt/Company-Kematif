@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/proker.css">
 <style>
   :root {
     --blue: #0f4c81;
@@ -303,6 +304,29 @@ nav ul li a:hover {
   </div>
 </main>
 
+<section class="pk" id="proker" aria-labelledby="pk-judul">
+  <div class="pk-kepala">
+    <h2 id="pk-judul">Timeline Program Kerja</h2>
+    <p>Jejak kegiatan KEMATIF dari waktu ke waktu. Geser ke samping atau pilih divisi untuk menyaring.</p>
+  </div>
+
+  <div class="pk-chip-wrap" id="pk-chip" role="group" aria-label="Filter divisi"></div>
+
+  <div class="pk-panggung">
+    <button class="pk-panah" id="pk-kiri" type="button" aria-label="Geser ke kiri">‹</button>
+    <div class="pk-timeline" id="pk-timeline" tabindex="0" aria-label="Timeline program kerja"></div>
+    <button class="pk-panah" id="pk-kanan" type="button" aria-label="Geser ke kanan">›</button>
+  </div>
+
+  <div class="pk-bagian-divisi">
+    <div class="pk-kepala">
+      <h2>Kenali Divisi Kami</h2>
+      <p>Ketuk kartu untuk membalik dan melihat tugas serta program kerja tiap divisi.</p>
+    </div>
+    <div class="pk-kartu-grid" id="pk-divisi"></div>
+  </div>
+</section>
+
 <div class="overlay" id="overlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-judul">
     <button class="close" id="close" type="button" aria-label="Tutup">
@@ -472,5 +496,7 @@ document.addEventListener("click", (e) => {
     if (e.key === 'Tab') { e.preventDefault(); document.getElementById('close').focus(); }
   });
 </script>
+<script src="js/data-kegiatan.js"></script>
+<script src="js/proker.js"></script>
 </body>
 </html>

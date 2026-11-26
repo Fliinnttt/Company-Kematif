@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kas Anggota - KEMATIF</title>
     <link rel="stylesheet" href="css/kas-anggota.css">
+    <link rel="stylesheet" href="css/grafik.css">
 </head>
 <body>
 
@@ -42,6 +43,27 @@
             <div class="hero-aksi">
                 <a href="#cari">Cari Anggota</a>
                 <a href="#daftar">Lihat Ringkasan</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="panel" id="grafik-kas">
+            <h2>Grafik Kas Anggota</h2>
+            <p>Gambaran status pembayaran kas seluruh anggota dan perbandingannya per angkatan.</p>
+
+            <div class="g-grid">
+                <div class="g-kartu">
+                    <h3>Status per Angkatan</h3>
+                    <p class="g-ket">Jumlah anggota berdasarkan status pembayaran</p>
+                    <div id="grafik-kas-angkatan"></div>
+                </div>
+
+                <div class="g-kartu">
+                    <h3>Status Pembayaran</h3>
+                    <p class="g-ket">Arahkan kursor untuk melihat persentase</p>
+                    <div id="grafik-kas-donut"></div>
+                </div>
             </div>
         </section>
 
@@ -108,5 +130,6 @@
     </main>
 
     <script src="js/kas-anggota.js"></script>
+    <script src="js/grafik.js"></script>
 </body>
 </html>

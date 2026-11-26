@@ -10,22 +10,23 @@
 <body>
 
     <header>
-        <a href="beranda-anggota.html">
-            <img src="assets/logo-kematif.png" alt="Logo KEMATIF" width="80">
-        </a>
+      <img src="assets/logo-kematif.png" alt="Logo KEMATIF" />
+      <div class="judul">
+        <h4>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</h4>
+        <p>Politeknik Negeri Jember</p>
+      </div>
 
-        <div>
-            <strong>Himpunan Prodi Keluarga Mahasiswa Teknik Informatika</strong>
-            <p>Politeknik Negeri Jember</p>
-        </div>
+       <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
 
-        <nav>
-            <a href="beranda-anggota.html">Beranda</a>
-            <a href="kegiatan-anggota.html">Kegiatan</a>
-            <a href="kas-anggota.html">Kas Anggota</a>
-            <a href="keuangan-anggota.html" aria-current="page">Keuangan</a>
-            <a href="index.html">Keluar</a>
-        </nav>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="beranda-anggota.html">Beranda</a></li>
+          <li><a class="a-open" href="keuangan-anggota.html">Keuangan</a></li>
+          <li><a href="kas-anggota.html">Kas Anggota</a></li>
+          <li><a href="kegiatan-anggota.html">Kegiatan</a></li>
+          <li><a href="index.html">Keluar</a></li>
+        </ul>
+      </nav>
     </header>
 
     <hr>

@@ -43,8 +43,7 @@
           </p>
         </div>
 
-<<<<<<< HEAD
-        <form action="beranda-anggota.html" method="get">
+        <form id="form-login">
           <div class="form-grub">
             <input
               type="email"
@@ -53,13 +52,6 @@
               required
             />
           </div>
-=======
-            <form id="form-login">
-                
-                <div class="form-grub">
-                    <input type="email" name="email" placeholder="Email SSO Polije" required>
-                </div>
->>>>>>> 61389b0 (update login form)
 
           <div class="form-grub">
             <input
@@ -81,12 +73,12 @@
     </main>
 
     <script>
-        // Situs statis tidak punya backend, jadi POST ke file .html menghasilkan 405.
-        // Setelah validasi bawaan browser lolos, langsung arahkan ke beranda anggota.
-        document.getElementById("form-login").addEventListener("submit", function (e) {
-            e.preventDefault();
-            window.location.href = "beranda-anggota.html";
+      document
+        .getElementById("form-login")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          window.location.href = "beranda-anggota.html";
         });
     </script>
-</body>
+  </body>
 </html>
